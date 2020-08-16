@@ -4,6 +4,8 @@ import { Button, Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import axios from "axios";
 import ArticleContent from "./ArticleContent"
+import { Route, Switch } from "react-router-dom";
+import CategoryHeader from './CategoryHeader'
 
 class ArticlePage extends Component {
   state = {
@@ -72,6 +74,13 @@ class ArticlePage extends Component {
 
     return (
       <>
+        <div>
+          <CategoryHeader />
+          <Switch>
+            <Route exact path="/" component={ArticlePage}></Route>
+            <Route exact path="/articles/:category" component={ArticlePage}></Route>
+          </Switch>
+        </div>
         <div>{loginMessage}</div>
         <Container>
           {form}
