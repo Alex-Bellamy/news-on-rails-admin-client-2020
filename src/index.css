@@ -41,11 +41,10 @@ top: 10px;
 .article-list{
   display: inline-block;
   box-sizing: border-box;
-  overflow: hidden;
-  
+  overflow: hidden; 
 }
 
-#btn-art{
+#create-article{
   position: absolute;
   right: 70px;
   top: 30px;

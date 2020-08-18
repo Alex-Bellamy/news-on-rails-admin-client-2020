@@ -17,7 +17,7 @@ const ArticlePage = () => {
   const getArticles = async () => {
     let response;
     if (userRole == 'editor') {
-      response = await axios.get("/articles", {
+      response = await axios.get("/admin/articles", {
         params: {
           published: false
         }
@@ -42,7 +42,7 @@ const ArticlePage = () => {
     try {
       const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
       let id = singleArticle.id
-      let response = await axios.put(`/articles/${id}`, {
+      let response = await axios.put(`/admin/articles/${id}`, {
         publish: true
       }, {
         headers: headers

@@ -17,7 +17,7 @@ describe("Editor can publish articles", () => {
 
       cy.route({
         method: "GET",
-        url: "http://localhost:3000/api/v1/articles**",
+        url: "http://localhost:3000/api/v1/admin/articles**",
         response: "fixture:unpublish_articles.json",
       });
 
@@ -29,7 +29,7 @@ describe("Editor can publish articles", () => {
 
       cy.route({
         method: "PUT",
-        url: "http://localhost:3000/api/v1/articles/1",
+        url: "http://localhost:3000/api/v1/admin/articles/1",
         response: "fixture:publish_article_response.json",
       });
 

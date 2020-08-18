@@ -44,7 +44,7 @@ const CreateArticle = () => {
       }
 
       response = await axios.post(
-        "http://localhost:3000/api/v1/articles",
+        "http://localhost:3000/api/v1/admin/articles",
         { article: articleParams },
         { headers: headers }
       );
@@ -106,7 +106,7 @@ const CreateArticle = () => {
         {message && <p id="response-message">{message}</p>}
       </>
     ) : (
-        <Button id='btn-art' onClick={() => setRenderArticleForm(true)}>Create Article</Button>
+        <Button id='create-article' onClick={() => setRenderArticleForm(true)}>Create Article</Button>
       )
   )
 }
