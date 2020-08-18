@@ -35,7 +35,7 @@ const App = (props) => {
       {editorContent}
       {journalistContent}
       {props.userEmail && (
-        <p>Hey {props.userEmail}, have a productive day!</p>
+        <p id='welcome'>Hey {props.userEmail}, have a productive day!</p>
       )}    
     </>
   );

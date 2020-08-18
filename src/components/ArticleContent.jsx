@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Grid } from "semantic-ui-react";
 import { useSelector } from "react-redux";
+import { Card, Button } from 'semantic-ui-react'
+
 
 const ArticleContent = (props) => {
   let publishArticle;
@@ -8,15 +9,17 @@ const ArticleContent = (props) => {
 
   if (userRole == "editor") {
     publishArticle = (
-      <button id="publish-article" onClick={props.publishArticle}>
+      <Button id="publish-article" onClick={props.publishArticle}>
         Publish article
-      </button>
+      </Button>
     );
   }
   return (
+    
     <div className="article-list">
-      <Container>
-        <Grid columns={3} divided>
+      <Card.Group>
+        <Card>
+          <Card.Content> 
           <div id={`article-${props.article.id}`} data-id={props.article.id}>
             <h1 id="title">{props.article.title}</h1>
             <h2 id="lead">{props.article.lead}</h2>
@@ -27,18 +30,20 @@ const ArticleContent = (props) => {
                 <img src={props.article.image} alt="article" />
                 {publishArticle}
                 <button onClick={props.closeSingleArticle}>
-                  Close article
+                    Close article
                 </button>
               </>
             ) : (
-              <button id="view-article" onClick={props.getSingleArticle}>
+              <Button id="view-article" onClick={props.getSingleArticle}>
                 View Article
-              </button>
+              </Button>
             )}
-          </div>
-        </Grid>
-      </Container>
-    </div>
+            </div>
+          </Card.Content>
+        </Card>
+      </Card.Group>
+        </div>
+     
   );
 };
 export default ArticleContent;

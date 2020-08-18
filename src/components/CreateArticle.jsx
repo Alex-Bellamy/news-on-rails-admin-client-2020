@@ -102,11 +102,11 @@ const CreateArticle = () => {
 
           <Button type="submit">Save Article</Button>
         </Form>
-        <button onClick={() => setRenderArticleForm(false)}>Close form</button>
+        <Button onClick={() => setRenderArticleForm(false)}>Close form</Button>
         {message && <p id="response-message">{message}</p>}
       </>
     ) : (
-        <button onClick={() => setRenderArticleForm(true)}>Create Article</button>
+        <Button id='btn-art' onClick={() => setRenderArticleForm(true)}>Create Article</Button>
       )
   )
 }
