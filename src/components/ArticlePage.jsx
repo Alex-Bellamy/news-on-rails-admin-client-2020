@@ -16,7 +16,7 @@ const ArticlePage = () => {
 
   const getArticles = async () => {
     let response;
-    if (userRole == 'editor') {
+    if (userRole === 'editor') {
       response = await axios.get("/admin/articles", {
         params: {
           published: false
