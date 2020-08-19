@@ -3,7 +3,7 @@ describe('Journalist can see list of their articles', () => {
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/v1/articles',
+      url: 'http://localhost:3000/api/v1/admin/articles',
       response: "fixture:articles_index.json",
     });
     cy.route({
