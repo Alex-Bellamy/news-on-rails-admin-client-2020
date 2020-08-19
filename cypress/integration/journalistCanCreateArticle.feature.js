@@ -4,18 +4,18 @@ describe("Journalist can create article", () => {
       cy.server();
       cy.route({
         method: "POST",
-        url: "http://localhost:3000/api/v1/articles",
+        url: "http://localhost:3000/api/v1/admin/articles",
         response: '{"message": "Your article was successfully created"}',
       });
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       });
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/auth/**",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       })
       cy.visit('/')
       cy.get("#login-form").within(() => {
@@ -47,18 +47,18 @@ describe("Journalist can create article", () => {
       cy.server();
       cy.route({
         method: "POST",
-        url: "http://localhost:3000/api/v1/articles",
+        url: "http://localhost:3000/api/v1/admin/articles",
         response: { message: "Title can't be blank" },
       });
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       });
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/auth/**",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       })
       cy.visit('/')
       cy.get("#login-form").within(() => {

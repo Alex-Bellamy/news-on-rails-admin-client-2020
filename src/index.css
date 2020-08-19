@@ -37,3 +37,16 @@ position: absolute;
 right: 80px;
 top: 10px;
 }
+
+.article-list{
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+#create-article{
+  position: absolute;
+  right: 70px;
+  top: 30px;
+}
+

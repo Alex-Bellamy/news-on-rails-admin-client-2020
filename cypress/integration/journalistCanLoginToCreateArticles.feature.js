@@ -5,12 +5,12 @@ describe('Journalist can login', () => {
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       });
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/auth/**",
-        response: "fixture:registration_response.json",
+        response: "fixture:login_response.json",
       })
       cy.visit('/')
     })
