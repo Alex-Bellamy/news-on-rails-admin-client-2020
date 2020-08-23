@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin-left: 5%;
+  margin-right: 5%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -14,6 +15,11 @@ code {
 
 #image-upload {
   border: none;
+}
+
+#images {
+  height: 25%;
+  width: 25%;
 }
 
 .ui.header {

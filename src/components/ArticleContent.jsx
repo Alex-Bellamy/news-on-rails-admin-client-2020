@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Card, Button } from 'semantic-ui-react'
+import { Button, Segment, Divider, Header } from 'semantic-ui-react'
 
 
 const ArticleContent = (props) => {
@@ -17,31 +17,28 @@ const ArticleContent = (props) => {
   return (
     
     <div className="article-list">
-      <Card.Group>
-        <Card>
-          <Card.Content> 
+        <Segment padded>
           <div id={`article-${props.article.id}`} data-id={props.article.id}>
-            <h1 id="title">{props.article.title}</h1>
-            <h2 id="lead">{props.article.lead}</h2>
+            <Header as="h2" floated="left" id="title">{props.article.title}</Header>
+            <Divider clearing></Divider>
+            <h3 id="lead">{props.article.lead}</h3>
             {props.singleArticle ? (
               <>
-                <h2 id="content">{props.article.content}</h2>
+                <p id="content">{props.article.content}</p>
                 <h2 id="category">{props.article.category}</h2>
-                <img src={props.article.image} alt="article" />
+                <img id="images" src={props.article.image} alt="article" /> <br />
                 {publishArticle}
-                <button onClick={props.closeSingleArticle}>
+                <Button onClick={props.closeSingleArticle}>
                     Close article
-                </button>
+                </Button>
               </>
             ) : (
               <Button id="view-article" onClick={props.getSingleArticle}>
                 View Article
               </Button>
             )}
-            </div>
-          </Card.Content>
-        </Card>
-      </Card.Group>
+          </div>
+          </Segment>
         </div>
      
   );
