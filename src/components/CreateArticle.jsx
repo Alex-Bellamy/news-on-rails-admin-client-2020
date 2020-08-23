@@ -4,6 +4,7 @@ import { Form, Button, TextArea, Input } from "semantic-ui-react";
 
 const CreateArticle = () => {
   const [selectedCategory, setSelectedCategory] = useState("")
+  const [premiumCategory, setSelectedPremiumCategory] = useState("")
   const [message, setMessage] = useState("")
   const [renderArticleForm, setRenderArticleForm] = useState(false)
 
@@ -16,6 +17,11 @@ const CreateArticle = () => {
     { key: "s", text: "Sports", value: "sports" },
   ];
 
+  const premiumOption = [
+    { key: "p", text: "Premium", value: "premium" },
+    { key: "f", text: "Free", value: false },
+  ]
+
   const toBase64 = (file) =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -27,7 +33,7 @@ const CreateArticle = () => {
   const submitArticle = async (event) => {
     event.preventDefault();
     let responseMessage, articleParams, encodedImage, response;
-    let { title, lead, content, image } = event.target;
+    let { title, lead, content, location, image } = event.target;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
     try {
@@ -36,6 +42,8 @@ const CreateArticle = () => {
         lead: lead.value,
         content: content.value,
         category: selectedCategory,
+        location: location.value,
+        premium: premiumCategory
       };
 
       if (image.files[0]) {
@@ -59,6 +67,10 @@ const CreateArticle = () => {
 
   const handleCategoryChange = (value) => {
     setSelectedCategory(value)
+  }
+
+  const handlePremiumChange = (value) => {
+    setSelectedPremiumCategory(value)
   }
 
   return (
@@ -95,6 +107,21 @@ const CreateArticle = () => {
             id="content"
             name="content"
             label="Content"
+          />
+          <Form.Field
+            control={Input}
+            placeholder="Region"
+            id="location"
+            name="location"
+            label="Location"
+          />
+          <Form.Select
+            onChange={(event, data) => { handlePremiumChange(data.value) }}
+            options={premiumOption}
+            placeholder="Premium or Free"
+            id="premium"
+            name="premium"
+            label="Type"
           />
           <Form.Group>
             <Input id="image-upload" name="image" type="file" />
