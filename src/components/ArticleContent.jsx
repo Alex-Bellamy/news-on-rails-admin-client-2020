@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Button, Segment, Divider, Header } from 'semantic-ui-react'
 
-
 const ArticleContent = (props) => {
   let publishArticle;
   const userRole = useSelector((state) => state.currentUser.role);
@@ -15,7 +14,6 @@ const ArticleContent = (props) => {
     );
   }
   return (
-    
     <div className="article-list">
         <Segment padded>
           <div id={`article-${props.article.id}`} data-id={props.article.id}>
@@ -40,7 +38,7 @@ const ArticleContent = (props) => {
           </div>
           </Segment>
         </div>
-     
   );
 };
+
 export default ArticleContent;
