@@ -19,6 +19,7 @@ const CreateArticle = () => {
 
   const premiumOption = [
     { key: "p", text: "Premium", value: "premium" },
+    { key: "f", text: "Free", value: false },
   ]
 
   const toBase64 = (file) =>
@@ -113,15 +114,15 @@ const CreateArticle = () => {
             id="location"
             name="location"
             label="Location"
-            /> 
-        <Form.Select
-              onChange={(event, data) => { handlePremiumChange(data.value) }}
-              options={premiumOption}
-              placeholder="Select if premium article"
-              id="premium"
-              name="premium"
-              label="Premium Article"
-            />
+          />
+          <Form.Select
+            onChange={(event, data) => { handlePremiumChange(data.value) }}
+            options={premiumOption}
+            placeholder="Premium or Free"
+            id="premium"
+            name="premium"
+            label="Type"
+          />
           <Form.Group>
             <Input id="image-upload" name="image" type="file" />
           </Form.Group>

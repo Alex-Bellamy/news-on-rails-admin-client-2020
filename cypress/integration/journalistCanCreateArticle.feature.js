@@ -32,6 +32,9 @@ describe("Journalist can create article", () => {
         cy.get("#category").click();
         cy.get("div[role='option']").contains("Lifestyle").click();
         cy.get("#content").type("This is content");
+        cy.get("#location").type("Sweden");
+        cy.get("#premium").click();
+        cy.get("div[role='option']").contains("Premium").click();
         cy.file_upload("img.jpeg", "#image-upload", "image/jpeg");
         cy.get("button").contains("Save Article").click();
       });
