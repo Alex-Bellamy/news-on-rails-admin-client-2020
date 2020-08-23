@@ -126,11 +126,10 @@ const CreateArticle = () => {
           <Form.Group>
             <Input id="image-upload" name="image" type="file" />
           </Form.Group>
-
           <Button type="submit">Save Article</Button>
-        </Form>
+        </Form><br />
         <Button onClick={() => setRenderArticleForm(false)}>Close form</Button>
-        {message && <p id="response-message">{message}</p>}
+        {message && <p id="response-message">{message}</p>}<br />
       </>
     ) : (
         <Button id='create-article' onClick={() => setRenderArticleForm(true)}>Create Article</Button>
